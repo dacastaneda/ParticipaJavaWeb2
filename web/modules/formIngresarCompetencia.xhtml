@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+   <!-- ARTICULO PARA ADMINISTRAR LA AGENDA -->
+				<script>
+				$(document).ready(function(){
+					// validacion del formulario
+				    $('button#btnSbmtRegistrarTarea').click(function(event){
+				        if( prdgm_validarSelectDIV('slctCodigoCurso','Curso') == false) return false;
+				        if( prdgm_validarSelectDIV('slctAsignaturaColegio','Asignatura') == false) return false;
+				        if( prdgm_validarSelectDIV('txtfldTemaEvaluacion','Tema a evaluar') == false) return false;
+				        if( prdgm_validarTextoDIV('txtfldNombreTarea','Título tarea') == false) return false;
+				        if( prdgm_validarTextAreaDIV('txtareaDetalleTarea','Detalle de la tarea') == false) return false;
+				        if(
+				        	prdgm_validarRadioBottomDIV('checkCognitiva','Competencia a Evaluar') == false
+				        	&& prdgm_validarRadioBottomDIV('checkProcedimental','Competencia a Evaluar') == false
+				        	&& prdgm_validarRadioBottomDIV('checkValorativa','Competencia a Evaluar') == false
+				        	&& prdgm_validarRadioBottomDIV('checkSocializadora','Competencia a Evaluar') == false
+				        ) return false;
+				        if( prdgm_validarTextoDIV('txtfldFechaTarea','Fecha tarea') == false) return false;
+				        if( prdgm_validarTextoDIV('txtfldFechaEnvio','Fecha máx envío') == false) return false;
+						// se envia datos del formulario
+				    });
+					// estilos para las tablas
+					$('#listas').dataTable({
+						"orderCellsTop": true
+					});
+					// llamar calendario
+					$( "#dateFechaTarea" ).datepicker({
+						dateFormat: "yy-mm-dd",
+						changeYear: true,
+						beforeShowDay: $.datepicker.noWeekends,
+						onClose: function( selectedDate ) {
+							jQuery( "#dateFechaEnvio" ).datepicker( "option", "minDate", selectedDate );
+							var currentDate = jQuery( "#dateFechaTarea" ).datepicker( "getDate" );
+							jQuery( "#dateFechaEnvio" ).datepicker( "setDate", currentDate );
+						}
+					});
+					// llamar calendario
+					$( "#dateFechaEnvio" ).datepicker({
+						dateFormat: "yy-mm-dd",
+						changeYear: true,
+						beforeShowDay: $.datepicker.noWeekends
+					});
+				});
+				</script>
+				<div class="article">
+					<div class="article_title">
+						<h2>Competencias</h2>
+					</div>
+					<div class="article_content" >
+						<div class="form">
+							<form action="" method="get" id="formCompetenciasIngresar" name="formCompetenciasIngresar">
+								<div class="form_content" >
+									<p>En el siguiente formulario debe ingresar las competencias a desarrollar en el periodo.</p>
+									 <div class="form_field form_field_4" >
+										<label for="slctCodigoCurso"><h3>Curso:<sup class="required"> * </sup></h3></label>
+										<select id="slctCodigoCurso" name="slctCodigoCurso">
+											<option value="">Seleccione</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+										</select>
+									</div>
+									<div class="form_field form_field_2" >
+										<label for="slctAsignaturaColegio"><h3>Asignatura:<sup class="required"> * </sup></h3></label>
+										<select id="slctAsignaturaColegio" name="slctAsignaturaColegio" >
+											<option value="">Seleccione</option>
+											<option value="Ciencias Sociales">Ciencias sociales</option>
+											<option value="Ciencias Naturales">Ciencias naturales</option>
+											<option value="Educacion Artística">Educación artística</option>
+											<option value="Educacion ética">Educación ética</option>
+											<option value="Educación física">Educación física</option>
+											<option value="Idiomas Extranjeros">Idiomas extranjeros</option>
+											<option value="Lengua castellana">Lengua castellana</option>
+											<option value="Matemáticas">Matemáticas</option>
+										</select>
+									</div>
+									<div class="clear"></div>
+									<div class="form_field form_field_1" >
+										<label for="slctCompetenciaColegio"><h3>Competencia:<sup class="required"> * </sup></h3></label>
+										<select id="slctCompetenciaColegio" name="slctCompetenciaColegio" >
+											<option value="">Seleccione</option>
+											<option value="Logro7CS">EXPLICA LOS HECHOS OCURRIDOS DURANTE LAS EDADES MEDIA Y MODERNA EN EL ANTIGUO CONTINENTE Y SU INFLUENCIA EN COLOMBIA</option>
+											<option value="Logro7EE">EVIDENCIAR UN AMBIENTE DE ACOGIDA, PERDÓN Y RECONCILIACIÓN EN DONDE LOS ESTUDIANTES DESARROLLEN ESTOS VALORES MÁS POR TESTIMONIO QUE POR LO QUE SE DICE</option>
+											<option value="Logro7ER">FUNDAMENTAR PORQUÉ EN ALGUNAS FAMILIAS SE ATENTA CONTRA LA VIDA Y LA DIGNIDAD DE LOS NIÑOS Y JOVENES</option>
+											<option value="Logro7EA">COMPARTE EN EL JUEGO, ESCUCHA EL DESEO DEL OTRO Y UTILIZA EL DIÁLOGO COMO MEDIADOR EN LAS PROPUESTAS DE JUEGO</option>
+											<option value="Logro7EF">RECONOCE LOS FUNDAMENTOS TÉCNICOS DEL VOLEIBOL</option>
+											<option value="Logro7TI">COMPRENDE LOS CONCEPTOS ACORDES CON LA LY DE AMPERE</option>
+											<option value="Logro7MA">RECONOCE LOS FUNDAMENTOS DE LA REVOLUCIÓN INDUSTRIAL E IMPACTO EN EL ESPAÑOL</option>
+											<option value="Logro7CN">RECONOCE FUNDAMENTOS DEL ALGEBRA</option>
+										</select>
+									</div>
+									<div class="clear">
+									<div class="form_field form_field_2">
+										<label for="txtareaDetalleLogro"><h3>Detalle del logro:<sup class="required"> * </sup></h3></label>
+										<textarea id="txtareaDetalleLogro" name="txtareaDetalleLogro" placeholder="Detalle del Logro" ></textarea>
+									</div>
+									<div class="form_field form_field_2" >
+										<label for="slctCompetenciaEvaluar"><h3>Competencia a Evaluar:<sup class="required"> * </sup></h3></label>
+										<select id="slctCompetenciaEvaluar" name="slctCompetenciaEvaluar" >
+											<option value="">Seleccione</option>
+											<option value="slctCognitiva">Cognitiva</option>
+											<option value="slctProcedimental">Procedimental</option>
+											<option value="slctValorativa">Valorativa</option>
+											<option value="slctSocializadora">Socializadora</option>
+										</select>
+									</div>
+									<div class="clear"></div>
+									<div class="form_button_box">
+										<p class="required">(*) campos obligatorios</p>
+										<button type="submit" name="btnSbmtIngresarLogro" id="btnSbmtIngresarLogro">Ingresar</button>
+									</div>
+								</div>
+							</form>
+						</div>
+				</div>
+
+</html>
+

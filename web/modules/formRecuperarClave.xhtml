@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+<!-- ARTUCULO DEL FORMULARIO DE CAMBIO DE CLAVE  -->
+<script>
+    $(document).ready(function(){
+        // Se enfoca el campo inicial
+        prdgm_focoObjeto("txtfldCorreoUsuario");
+        // validacion del formulario
+        $('button#btnSbmtRecuperarClave').click(function(event){
+            if( prdgm_validarEmailDIV('txtfldCorreoUsuario','Correo Electrónico') == false) return false;
+        });
+    });
+</script>
+<div class="article">
+    <div class="article_title">
+        <h2>Recuperar Clave</h2>
+    </div>
+    <div class="article_content">
+        <form action="" method="get">
+            <div class="form">
+                <div class="form_title">
+                    <p>Aqui puede recuperar su clave de acceso</p>
+                </div>
+                <div class="form_content">
+                    <div class="form_field form_field_3">
+                        <label for="txtfldCorreoUsuario"><h3>Correo Electrónico:<sup class="required"> * </sup></h3></label>
+                        <input type="text" name="txtfldCorreoUsuario" id="txtfldCorreoUsuario" placeholder="Correo registrado" />
+                    </div>
+                    <div class="form_button_box">
+                        <button type="submit" name="btnSbmtRecuperarClave" id="btnSbmtRecuperarClave">Recuperar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</html>
