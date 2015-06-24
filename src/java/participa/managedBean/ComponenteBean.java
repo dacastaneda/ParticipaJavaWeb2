@@ -6,7 +6,6 @@
 package participa.managedBean;
 
 import java.util.List;
-import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import participa.controlador.Controlador;
@@ -19,7 +18,6 @@ import participa.modelo.Componente;
 @ManagedBean
 @RequestScoped
 public class ComponenteBean {
-    @EJB
     private Controlador controlador;
 
     List<Componente> componentes;
