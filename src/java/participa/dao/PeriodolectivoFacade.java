@@ -12,10 +12,10 @@ import participa.modelo.Periodolectivo;
 
 /**
  *
- * @author DIEGOCH
+ * @author USUARIO
  */
 @Stateless
-public class PeriodolectivoFacade extends AbstractFacade<Periodolectivo> {
+public class PeriodolectivoFacade extends AbstractFacade<Periodolectivo> implements PeriodolectivoFacadeLocal {
     @PersistenceContext(unitName = "ParticipaJavaWebPU")
     private EntityManager em;
 

@@ -12,10 +12,10 @@ import participa.modelo.Actividadacalificar;
 
 /**
  *
- * @author DIEGOCH
+ * @author USUARIO
  */
 @Stateless
-public class ActividadacalificarFacade extends AbstractFacade<Actividadacalificar> {
+public class ActividadacalificarFacade extends AbstractFacade<Actividadacalificar> implements ActividadacalificarFacadeLocal {
     @PersistenceContext(unitName = "ParticipaJavaWebPU")
     private EntityManager em;
 

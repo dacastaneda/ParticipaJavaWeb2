@@ -12,10 +12,10 @@ import participa.modelo.Periodocalificable;
 
 /**
  *
- * @author DIEGOCH
+ * @author USUARIO
  */
 @Stateless
-public class PeriodocalificableFacade extends AbstractFacade<Periodocalificable> {
+public class PeriodocalificableFacade extends AbstractFacade<Periodocalificable> implements PeriodocalificableFacadeLocal {
     @PersistenceContext(unitName = "ParticipaJavaWebPU")
     private EntityManager em;
 

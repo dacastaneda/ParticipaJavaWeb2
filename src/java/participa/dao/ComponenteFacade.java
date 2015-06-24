@@ -12,10 +12,10 @@ import participa.modelo.Componente;
 
 /**
  *
- * @author DIEGOCH
+ * @author USUARIO
  */
 @Stateless
-public class ComponenteFacade extends AbstractFacade<Componente> {
+public class ComponenteFacade extends AbstractFacade<Componente> implements ComponenteFacadeLocal {
     @PersistenceContext(unitName = "ParticipaJavaWebPU")
     private EntityManager em;
 

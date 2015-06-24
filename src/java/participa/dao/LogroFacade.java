@@ -12,10 +12,10 @@ import participa.modelo.Logro;
 
 /**
  *
- * @author DIEGOCH
+ * @author USUARIO
  */
 @Stateless
-public class LogroFacade extends AbstractFacade<Logro> {
+public class LogroFacade extends AbstractFacade<Logro> implements LogroFacadeLocal {
     @PersistenceContext(unitName = "ParticipaJavaWebPU")
     private EntityManager em;
 

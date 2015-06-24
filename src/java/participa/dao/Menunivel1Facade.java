@@ -12,10 +12,10 @@ import participa.modelo.Menunivel1;
 
 /**
  *
- * @author DIEGOCH
+ * @author USUARIO
  */
 @Stateless
-public class Menunivel1Facade extends AbstractFacade<Menunivel1> {
+public class Menunivel1Facade extends AbstractFacade<Menunivel1> implements Menunivel1FacadeLocal {
     @PersistenceContext(unitName = "ParticipaJavaWebPU")
     private EntityManager em;
 
