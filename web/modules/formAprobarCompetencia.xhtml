@@ -8,18 +8,23 @@
         $(document).ready(function () {
             // validacion del formulario
             $('button#btnSbmtRegistrarTarea').click(function (event) {
-                if (prdgm_validarSelectDIV('slctCodigoCurso', 'Curso') === false) return false;
-                if (prdgm_validarSelectDIV('slctAsignaturaColegio', 'Asignatura') === false) return false;
-                if (prdgm_validarSelectDIV('txtfldTemaEvaluacion', 'Tema a evaluar') === false) return false;
-                if (prdgm_validarTextoDIV('txtfldNombreTarea', 'Título tarea') === false) return false;
-                if (prdgm_validarTextAreaDIV('txtareaDetalleTarea', 'Detalle de la tarea') === false) return false;
+                if (prdgm_validarSelectDIV('slctCodigoCurso', 'Curso') === false)
+                    return false;
+                if (prdgm_validarSelectDIV('slctAsignaturaColegio', 'Asignatura') === false)
+                    return false;
+                if (prdgm_validarSelectDIV('txtfldTemaEvaluacion', 'Tema a evaluar') === false)
+                    return false;
+                if (prdgm_validarTextoDIV('txtfldNombreTarea', 'Título tarea') === false)
+                    return false;
+                if (prdgm_validarTextAreaDIV('txtareaDetalleTarea', 'Detalle de la tarea') === false)
+                    return false;
                 if (
                         prdgm_validarRadioBottomDIV('checkCognitiva', 'Competencia a Evaluar') === false
                         AND prdgm_validarRadioBottomDIV('checkProcedimental', 'Competencia a Evaluar') === false
                         AND prdgm_validarRadioBottomDIV('checkValorativa', 'Competencia a Evaluar') === false
                         AND prdgm_validarRadioBottomDIV('checkSocializadora', 'Competencia a Evaluar') === false
                         )
-                    return false;
+                        return false;
                 if (prdgm_validarTextoDIV('txtfldFechaTarea', 'Fecha tarea') === false)
                     return false;
                 if (prdgm_validarTextoDIV('txtfldFechaEnvio', 'Fecha máx envío') === false)
@@ -53,66 +58,67 @@
         <div class="article_title">
             <h2>Competencias</h2>
         </div>
+        <div class="article_content">
+            <div class="form">
+                <form action="" method="get" id="formCompetenciasAprobar" name="formCompetenciasAprobar">
+                    <div class="form_content" >
+                        <p>En el siguiente formulario debe aprobar las competencias que se desarrollarán en el periodo.</p>
+                        <div class="form_field form_field_4" >
+                            <label for="slctCodigoCurso"><h3>Curso:<sup class="required"> * </sup></h3></label>
+                            <select id="slctCodigoCurso" name="slctCodigoCurso">
+                                <option value="">Seleccione</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                            </select>
+                        </div>
+                        <div class="form_field form_field_2" >
+                            <label for="slctAsignaturaDocente"><h3>Docente:<sup class="required"> * </sup></h3></label>
+                            <select id="slctAsignaturaDocente" name="slctAsignaturaDocente" >
+                                <option value="">Seleccione</option>
+                                <option value="Javier Martinez">Javier Martinez</option>
+                                <option value="Pablo Manrrique">Pablo Manrrique</option>
+                                <option value="Teresa Lozada">Teresa Lozada</option>
+                            </select>
+                        </div>
+                        <div class="clear"></div>
+                        <h2>Listado de logros</h2>
 
-        <div class="form">
-            <form action="" method="get" id="formCompetenciasAprobar" name="formCompetenciasAprobar">
-                <div class="form_content" >
-                    <p>En el siguiente formulario debe aprobar las competencias que se desarrollarán en el periodo.</p>
-                    <div class="form_field form_field_4" >
-                        <label for="slctCodigoCurso"><h3>Curso:<sup class="required"> * </sup></h3></label>
-                        <select id="slctCodigoCurso" name="slctCodigoCurso">
-                            <option value="">Seleccione</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                        </select>
-                    </div>
-                    <div class="form_field form_field_2" >
-                        <label for="slctAsignaturaDocente"><h3>Docente:<sup class="required"> * </sup></h3></label>
-                        <select id="slctAsignaturaDocente" name="slctAsignaturaDocente" >
-                            <option value="">Seleccione</option>
-                            <option value="Javier Martinez">Javier Martinez</option>
-                            <option value="Pablo Manrrique">Pablo Manrrique</option>
-                            <option value="Teresa Lozada">Teresa Lozada</option>
-                        </select>
-                    </div>
-                    <div class="clear"></div>
-                    <h2>Listado de logros</h2>
+                        <f:view>
+                            <h1><h:outputText value="List"/></h1>
+                            <h:dataTable value="algo" var="item">
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="IdComponente"/>
+                                    </f:facet>
+                                    <h:outputText value="Algo 1"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="PreguntaProblematizadora"/>
+                                    </f:facet>
+                                    <h:outputText value="algo 2"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="AsignaturaGrado"/>
+                                    </f:facet>
+                                    <h:outputText value="algo 3"/>
+                                </h:column>
+                            </h:dataTable>
+                        </f:view>
 
-                    <f:view>
-                        <h1><h:outputText value="List"/></h1>
-                        <h:dataTable value="algo" var="item">
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="IdComponente"/>
-                                </f:facet>
-                                <h:outputText value="Algo 1"/>
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="PreguntaProblematizadora"/>
-                                </f:facet>
-                                <h:outputText value="algo 2"/>
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="AsignaturaGrado"/>
-                                </f:facet>
-                                <h:outputText value="algo 3"/>
-                            </h:column>
-                        </h:dataTable>
-                    </f:view>
-
-                    <div class="clear"></div>
-                    <div class="form_button_box">
-                        <p class="required">(*) campos obligatorios</p>
-                        <button type="submit" name="btnSbmtRegistrarTarea" id="btnSbmtRegistrarTarea">Aprobar</button>
+                        <div class="clear"></div>
+                        <div class="form_button_box">
+                            <p class="required">(*) campos obligatorios</p>
+                            <button type="submit" name="btnSbmtRegistrarTarea" id="btnSbmtRegistrarTarea">Aprobar</button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </html>
