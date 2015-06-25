@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <script>
+        $(document).ready(function () {
+            // validacion del formulario
+            $('#j_idt16:btnSbmtRegistrarMenunivel1').click(function (event) {
+                alert("entro en script");
+                if (prdgm_validarTextoDIV('j_idt16:txtfldPruebaNombreMenunivel1', 'Nombre Módulo') == false)
+                    return false;
+                // se envia datos del formulario
+            });
+        });
+    </script>
+    <div class="article">
+        <div class="article_title">
+            <h2>Competencias</h2>
+        </div>
+        <div class="article_content">
+            <div class="form">
+                <h:form>
+                    <div class="form_content">
+                        <h2>Prueba de formularios</h2>
+                        <div class="form_field form_field_2" >
+                            <label for="j_idt16:txtfldPruebaNombreMenunivel1"><h3>Nombre Menu nivel 1:<sup class="required"> * </sup></h3></label>
+                            <h:inputText id="txtfldPruebaNombreMenunivel1" value="#{menunivel1Controller.menunivel1.nombreMenuNivel1}"></h:inputText>
+                        </div>
+                        <div class="form_button_box">
+                            <p class="required">(*) campos obligatorios</p>
+                            <h:commandButton id="btnSbmtRegistrarMenunivel1" value="Registrar" actionListener=="#{menunivel1Controller.registrar()}"></h:commandButton>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </div>
+</html>

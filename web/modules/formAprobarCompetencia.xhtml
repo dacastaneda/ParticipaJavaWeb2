@@ -4,56 +4,6 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <script>
-        $(document).ready(function () {
-            // validacion del formulario
-            $('button#btnSbmtRegistrarTarea').click(function (event) {
-                if (prdgm_validarSelectDIV('slctCodigoCurso', 'Curso') === false)
-                    return false;
-                if (prdgm_validarSelectDIV('slctAsignaturaColegio', 'Asignatura') === false)
-                    return false;
-                if (prdgm_validarSelectDIV('txtfldTemaEvaluacion', 'Tema a evaluar') === false)
-                    return false;
-                if (prdgm_validarTextoDIV('txtfldNombreTarea', 'Título tarea') === false)
-                    return false;
-                if (prdgm_validarTextAreaDIV('txtareaDetalleTarea', 'Detalle de la tarea') === false)
-                    return false;
-                if (
-                        prdgm_validarRadioBottomDIV('checkCognitiva', 'Competencia a Evaluar') === false
-                        AND prdgm_validarRadioBottomDIV('checkProcedimental', 'Competencia a Evaluar') === false
-                        AND prdgm_validarRadioBottomDIV('checkValorativa', 'Competencia a Evaluar') === false
-                        AND prdgm_validarRadioBottomDIV('checkSocializadora', 'Competencia a Evaluar') === false
-                        )
-                        return false;
-                if (prdgm_validarTextoDIV('txtfldFechaTarea', 'Fecha tarea') === false)
-                    return false;
-                if (prdgm_validarTextoDIV('txtfldFechaEnvio', 'Fecha máx envío') === false)
-                    return false;
-                // se envia datos del formulario
-            });
-            // estilos para las tablas
-            $('#listas').dataTable({
-                "orderCellsTop": true
-            });
-            // llamar calendario
-            $("#dateFechaTarea").datepicker({
-                dateFormat: "yy-mm-dd",
-                changeYear: true,
-                beforeShowDay: $.datepicker.noWeekends,
-                onClose: function (selectedDate) {
-                    jQuery("#dateFechaEnvio").datepicker("option", "minDate", selectedDate);
-                    var currentDate = jQuery("#dateFechaTarea").datepicker("getDate");
-                    jQuery("#dateFechaEnvio").datepicker("setDate", currentDate);
-                }
-            });
-            // llamar calendario
-            $("#dateFechaEnvio").datepicker({
-                dateFormat: "yy-mm-dd",
-                changeYear: true,
-                beforeShowDay: $.datepicker.noWeekends
-            });
-        });
-    </script>
     <div class="article">
         <div class="article_title">
             <h2>Competencias</h2>
@@ -85,7 +35,11 @@
                             </select>
                         </div>
                         <div class="clear"></div>
-                        <h2>Listado de logros</h2>
+                <h:form>
+                    <h:inputText></h:inputText>
+                    <h:commandButton></h:commandButton>
+                </h:form>
+<!--                        <h2>Listado de logros</h2>
 
                         <f:view>
                             <h1><h:outputText value="List"/></h1>
@@ -110,7 +64,7 @@
                                 </h:column>
                             </h:dataTable>
                         </f:view>
-
+-->
                         <div class="clear"></div>
                         <div class="form_button_box">
                             <p class="required">(*) campos obligatorios</p>
